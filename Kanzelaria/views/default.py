@@ -6,14 +6,13 @@ from sqlalchemy.exc import DBAPIError
 from .. import models
 
 
-@view_config(route_name='home', renderer='../templates/mytemplate.jinja2')
+@view_config(route_name='home', renderer='../templates/shop_content.jinja2')
 def my_view(request):
     try:
-        query = request.dbsession.query(models.MyModel)
-        one = query.filter(models.MyModel.name == 'one').first()
+        products = request.dbsession.query(models.Product).all()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'one': one, 'project': 'Kanzelaria'}
+    return {'products': products, 'project': 'Kanzelaria'}
 
 
 db_err_msg = """\
