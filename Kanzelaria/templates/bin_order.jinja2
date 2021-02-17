@@ -1,0 +1,36 @@
+{% extends "index.jinja2" %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
+{% endblock css %}
+
+{% block content %}
+
+    <a href="#"><img src="../static/img/logo.png" class="logo" alt="" title=""/></a>
+
+	<section class="listings" id="listings">
+		<div class="wrapper">
+        <form action="/order" method="post">
+			<h2>Оформление заказа</h2>
+			<div class="delivery-info">
+				<p><input type="text" name="name" placeholder="Введите Ваше имя"></p>
+				<p><input type="text" name="phone_number" placeholder="Введите Ваш номер телефона"></p>
+				<p><input type="text" name="address" placeholder="Выберите магазин"></p>
+			</div>
+            <h2>Ваша корзина</h2>
+            <ul class="properties_list">
+                <li>
+                    Здесь будет список выбранных продуктов, как на основной странице
+				</li>
+			</ul>
+            <h3> Общая стоимость </h3>
+            <p> Столько-то рублей </p>
+            <div class="more_listing" id="to_order">
+				<input class="more_listing_btn" type="submit" value="Оформить заказ">
+			</div>
+        </form>
+		</div>
+	</section>	<!--  end listing section  -->
+{% endblock content %}
