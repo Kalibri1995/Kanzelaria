@@ -12,12 +12,12 @@
 			<ul class="properties_list">
                 {% for shop in shops %}
                 <li>
-					<a href="#">
+					<a>
 						<img src={{ "../static/img/shops/" + shop.adr }} alt="{{ shop.name }}" title="" class="property_img"/>
 					</a>
 					<div class="property_details">
 						<h1>
-							<a href="#">{{ shop.name }}</a>
+							<a>{{ shop.name }}</a>
 						</h1>
 						<h2> {{ shop.desc }}</h2>
 					</div>
