@@ -5,7 +5,7 @@ from sqlalchemy.exc import DBAPIError
 
 from .. import models
 from ..main.canzelaria_parser import parse_products_info
-from ..main.order_saver import append_order
+from ..main.bin_saver import append_order
 
 
 @view_config(route_name='bin', renderer='../templates/bin_order.jinja2')

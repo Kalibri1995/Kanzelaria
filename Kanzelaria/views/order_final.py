@@ -1,15 +1,16 @@
 from pyramid.view import view_config
-from pyramid.response import Response
-
-from sqlalchemy.exc import DBAPIError
-
-from .. import models
+from ..main.bin_saver import all_orders
+from ..main.order_saver import save_order_info
 
 
 @view_config(route_name='order', renderer='../templates/final_order.jinja2')
 def my_view(request):
-    # Нужно вернуть объект order класса OrderDB
-    return {'project': 'Kanzelaria'}
+    order_info = save_order_info(
+        request,
+        request.params['name'],
+        request.params['phone_number'],
+        int(request.params['choose_shop']),
+        all_orders[request.client_addr])
 
-
-db_err_msg = "Ошибка БД"
+    all_orders[request.client_addr] = None
+    return {'order': order_info, 'project': 'Kanzelaria'}

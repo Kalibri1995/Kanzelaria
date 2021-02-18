@@ -1,10 +1,19 @@
+import transaction
+
+from Kanzelaria.models.Order import Order
 from Kanzelaria.models.Bin import Bin
 
-all_orders = dict()
 
+def save_order_info(request, name: str, phone: str, shop_id: int, bin: Bin):
+    order = Order(
+        name=name,
+        phone=phone,
+        shop_id=shop_id,
+        sum=bin.total_sum,
+        products=str(bin.products)
+    )
+    request.dbsession.add(order)
+    transaction.commit()
 
-def append_order(request, products: list):
-    if not all_orders.__contains__(request.client_addr):
-        all_orders[request.client_addr] = Bin(request.client_addr, products)
-
-    return all_orders
+    query = request.dbsession.query(Order)
+    return query.first()
