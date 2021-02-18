@@ -1,0 +1,33 @@
+{% extends "index.jinja2" %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
+{% endblock css %}
+
+{% block content %}
+    <section class="listings" id="listings">
+		<div class="wrapper">
+			<ul class="properties_list">
+                {% for shop in shops %}
+                <li>
+					<a href="#">
+						<img src={{ "../static/img/shops/" + shop.adr }} alt="{{ shop.name }}" title="" class="property_img"/>
+					</a>
+					<div class="property_details">
+						<h1>
+							<a href="#">{{ shop.name }}</a>
+						</h1>
+						<h2> {{ shop.desc }}</h2>
+					</div>
+				</li>
+
+                {% endfor %}
+			</ul>
+			<div class="more_listing">
+                <a class="more_listing_btn" href="/"> К покупкам </a>
+			</div>
+		</div>
+    </section>
+{% endblock content %}
