@@ -12,7 +12,7 @@
         <h2>
             Место получения:
         </h2>
-        <h3> {{ order.shop_id }} </h3>
+        <h3> {{ order.get_shop_info() }} </h3>
         <h2>
             Ваш выбор:
         </h2>
@@ -20,7 +20,7 @@
         <h2>
             На сумму:
         </h2>
-        <h3> {{ order.sum }} </h3>
+        <h3> {{ order.sum }} руб.</h3>
         <h1> Будем рады видеть Вас у нас! </h1>
     </div>
     <div class="more_listing" id="to_order">
