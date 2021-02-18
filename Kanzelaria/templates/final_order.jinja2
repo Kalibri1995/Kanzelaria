@@ -1,0 +1,30 @@
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
+{% endblock css %}
+
+{% block content %}
+<section class="listings" id="listings">
+    <div class="wrapper">
+        <h1>Благодарим за покупку!</h1>
+        <h3>Оператор получил ваш заказ и сообщит, когда его можно будет забрать.</h3>
+        <h2>
+            Место получения:
+        </h2>
+        <h3> {{ order.shop_id }} </h3>
+        <h2>
+            Ваш выбор:
+        </h2>
+        <h3> {{ order.products }} </h3>
+        <h2>
+            На сумму:
+        </h2>
+        <h3> {{ order.sum }} </h3>
+        <h1> Будем рады видеть Вас у нас! </h1>
+    </div>
+    <div class="more_listing" id="to_order">
+        <a class="more_listing_btn" href="/">Вернуться на главную</a>
+    </div>
+</section>
+{% endblock content %}

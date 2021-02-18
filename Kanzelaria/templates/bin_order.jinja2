@@ -15,7 +15,23 @@
 			<div class="delivery-info">
 				<p><input type="text" name="name" placeholder="Введите Ваше имя"></p>
 				<p><input type="text" name="phone_number" placeholder="Введите Ваш номер телефона"></p>
-				<p><input type="text" name="address" placeholder="Выберите магазин"></p>
+            <h3> Выберите магазин: </h3>
+                <ul class="properties_list">
+                    {% for shop in shops %}
+                    <li>
+                        <a href="#">
+                            <img src={{ "../static/img/shops/" + shop.adr }} alt="{{ shop.name }}" title="" class="property_img"/>
+                        </a>
+                        <div class="property_details">
+                            <h1>
+                                <input type="radio" name="choose_shop" value="{{ shop.id }}">
+                                <a href="#">{{ shop.name }}</a>
+                            </h1>
+                            <h2> {{ shop.desc }}</h2>
+                        </div>
+                    </li>
+                    {% endfor %}
+			    </ul>
 			</div>
             <h2>Ваша корзина</h2>
             <ul class="properties_list">

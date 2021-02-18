@@ -17,7 +17,11 @@ def my_view(request):
     Ну и взять из таблицы записи, отдать их на страницу, можно сразу посчитать стоимость, и тут уже переходим
     к оформлению заказа
     """
-    return {'project': 'Kanzelaria'}
+    try:
+        shops = request.dbsession.query(models.Shop).all()
+    except DBAPIError:
+        return Response(db_err_msg, content_type='text/plain', status=500)
+    return {'shops': shops, 'project': 'Kanzelaria'}
 
 
 db_err_msg = "Ошибка БД"

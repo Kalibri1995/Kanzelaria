@@ -61,7 +61,7 @@
                         <input type="checkbox" name="check_product" value={{ product.id }}>
                         <input type="number" name={{ "count_of_" + product.id|string }} value=1>
                         <input hidden type="text" name={{ "name_of_" + product.id|string }} value={{ product.name }}>
-                        <input hidden type="number" name={{ "price_of_" + product.price|string }} value={{ product.price }}>
+                        <input hidden type="number" name={{ "price_of_" + product.id|string }} value={{ product.price }}>
                         <input hidden type="text" name={{ "desc_of_" + product.id|string }} value={{ product.desc }}>
 					</div>
 				</li>
