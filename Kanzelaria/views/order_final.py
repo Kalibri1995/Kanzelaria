@@ -1,6 +1,7 @@
 from pyramid.view import view_config
 from ..main.bin_saver import all_orders
 from ..main.order_saver import save_order_info
+from ..main.order_sender import send_order_by_email
 from ..models.order_frontend import OrderFrontend
 
 
@@ -21,5 +22,6 @@ def my_view(request):
         order_info.shop_id,
         order_info.products
     )
+    send_order_by_email(order_front)
     all_orders[request.client_addr] = None
     return {'order': order_front, 'project': 'Kanzelaria'}
