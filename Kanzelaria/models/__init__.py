@@ -8,6 +8,7 @@ import zope.sqlalchemy
 from .mymodel import MyModel  # flake8: noqa
 from .Product import Product  # flake8: noqa
 from .Shop import Shop
+from .Order import Order
 # run configure_mappers after defining all of the models to ensure
 # all relationships can be setup
 configure_mappers()

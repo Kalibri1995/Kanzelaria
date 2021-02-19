@@ -22,6 +22,6 @@ def my_view(request):
         order_info.shop_id,
         order_info.products
     )
-    send_order_by_email(order_front)
+    send_order_by_email(order_front, request)
     all_orders[request.client_addr] = None
     return {'order': order_front, 'project': 'Kanzelaria'}

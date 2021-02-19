@@ -14,6 +14,9 @@ class OrderFrontend(object):
     def get_shop_info(self):
         return f"{self.shop.name}\n{self.shop.desc}"
 
+    def __str__(self):
+        return f"{self.id} | {self.name} | {self.phone} | {self.sum} руб. | {self.shop.name} \n{self.products}"
+
 
 def get_shop_by_id(request, shop_id: int) -> Shop:
     shops = request.dbsession.query(models.Shop).all()
